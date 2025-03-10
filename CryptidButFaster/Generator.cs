@@ -26,7 +26,6 @@ namespace CryptidButFaster
             GenerateBoards();
         }
 
-
         private void GenerateBoardParts()
         {
             List<BoardPart> parts =
@@ -36,77 +35,77 @@ namespace CryptidButFaster
          Tiles=
         [
             new ()  {
-            Coordinate= new Coordinate() { Q= 0, R= 0},
+            Coordinate= new Coordinate() { R= 0, Q= 0},
             Terrain= Terrains.River
           },
          new ()   {
-            Coordinate= new Coordinate() { Q= 1, R= 0},
+            Coordinate= new Coordinate() { R= 1, Q= 0},
             Terrain= Terrains.River
           },
       new ()      {
-           Coordinate= new Coordinate()  { Q= 2, R= 0},
+           Coordinate= new Coordinate()  { R= 2, Q= 0},
             Terrain= Terrains.River
           },
      new ()       {
-           Coordinate= new Coordinate()  { Q= 3, R= 0},
+           Coordinate= new Coordinate()  { R= 3, Q= 0},
             Terrain= Terrains.River
           },
       new ()      {
-           Coordinate= new Coordinate()  { Q= 4, R= 0},
+           Coordinate= new Coordinate()  { R= 4, Q= 0},
             Terrain= Terrains.Forest
           },
       new ()      {
-            Coordinate= new Coordinate(){ Q= 5, R= 0},
+            Coordinate= new Coordinate(){ R= 5, Q= 0},
             Terrain= Terrains.Forest
           },
       new ()      {
-            Coordinate= new Coordinate() { Q= 0, R= 1},
+            Coordinate= new Coordinate() { R= 0, Q= 1},
             Terrain= Terrains.Swamp
           },
     new ()        {
-            Coordinate= new Coordinate()  { Q= 1, R= 1},
+            Coordinate= new Coordinate()  { R= 1, Q= 1},
             Terrain= Terrains.Swamp
           },
     new ()        {
-            Coordinate= new Coordinate() { Q= 2, R= 1},
+            Coordinate= new Coordinate() { R= 2, Q= 1},
             Terrain= Terrains.River
           },
    new ()         {
-            Coordinate= new Coordinate() { Q= 3, R= 1},
+            Coordinate= new Coordinate() { R= 3, Q= 1},
             Terrain= Terrains.Desert
           },
    new ()         {
-            Coordinate= new Coordinate() { Q= 4, R= 1},
+            Coordinate= new Coordinate() { R= 4, Q= 1},
             Terrain= Terrains.Forest
           },
   new ()          {
-            Coordinate= new Coordinate() { Q= 5, R= 1},
+            Coordinate= new Coordinate() { R= 5, Q= 1},
             Terrain= Terrains.Forest
           },
       new ()      {
-            Coordinate= new Coordinate() { Q= 0, R= 2},
+            Coordinate= new Coordinate() { R= 0, Q= 2},
             Terrain= Terrains.Swamp
           },
     new ()        {
-            Coordinate= new Coordinate() { Q= 1, R= 2},
+            Coordinate= new Coordinate() { R= 1, Q= 2},
             Terrain= Terrains.Swamp
           },
     new ()        {
-            Coordinate= new Coordinate() { Q= 2, R= 2},
+            Coordinate= new Coordinate() { R= 2, Q= 2},
             Terrain= Terrains.Desert
           },
     new ()        {
-            Coordinate= new Coordinate() { Q= 3, R= 2},
+            Coordinate= new Coordinate() { R= 3, Q= 2},
             Terrain= Terrains.Desert,
             Territory= Territories.Bear
           },
     new ()        {
-            Coordinate= new Coordinate() { Q= 4, R= 2},
+            Coordinate= new Coordinate() { R= 4, Q= 2},
             Terrain= Terrains.Desert,
             Territory= Territories.Bear
           },
       new ()      {
-            Coordinate= new Coordinate() { Q= 5, R= 2},
+            Coordinate= new Coordinate() { R= 5, Q= 2},
             Terrain= Terrains.Forest,
             Territory= Territories.Bear
           }
@@ -116,78 +115,78 @@ namespace CryptidButFaster
         Id="2",
          Tiles= [
        new ()     {
-            Coordinate= new Coordinate() {Q= 0, R= 0},
+            Coordinate= new Coordinate() {R= 0, Q= 0},
             Terrain= Terrains.Swamp,
             Territory= Territories.Puma
 },
     new ()        {
-Coordinate= new Coordinate() { Q= 1, R= 0},
+Coordinate= new Coordinate() { R= 1, Q= 0},
             Terrain= Terrains.Forest,
             Territory= Territories.Puma
           },
      new ()       {
-Coordinate= new Coordinate() { Q= 2, R= 0},
+Coordinate= new Coordinate() { R= 2, Q= 0},
             Terrain= Terrains.Forest,
             Territory= Territories.Puma
           },
       new ()      {
-Coordinate= new Coordinate() { Q= 3, R= 0},
+Coordinate= new Coordinate() { R= 3, Q= 0},
             Terrain= Terrains.Forest
           },
      new ()       {
-Coordinate= new Coordinate() { Q= 4, R= 0},
+Coordinate= new Coordinate() { R= 4, Q= 0},
             Terrain= Terrains.Forest
           },
       new ()      {
-Coordinate= new Coordinate() { Q= 5, R= 0},
+Coordinate= new Coordinate() { R= 5, Q= 0},
             Terrain= Terrains.Forest
           },
     new ()        {
-Coordinate= new Coordinate() { Q= 0, R= 1},
+Coordinate= new Coordinate() { R= 0, Q= 1},
             Terrain= Terrains.Swamp
           },
      new ()       {
-Coordinate= new Coordinate() { Q= 1, R= 1},
+Coordinate= new Coordinate() { R= 1, Q= 1},
             Terrain= Terrains.Swamp
           },
      new ()       {
-Coordinate= new Coordinate() { Q= 2, R= 1},
+Coordinate= new Coordinate() { R= 2, Q= 1},
             Terrain= Terrains.Forest
           },
       new ()      {
-Coordinate= new Coordinate() { Q= 3, R= 1},
+Coordinate= new Coordinate() { R= 3, Q= 1},
             Terrain= Terrains.Desert
           },
       new ()      {
-Coordinate= new Coordinate() { Q= 4, R= 1},
+Coordinate= new Coordinate() { R= 4, Q= 1},
             Terrain= Terrains.Desert
           },
       new ()      {
-Coordinate= new Coordinate() { Q= 5, R= 1},
+Coordinate= new Coordinate() { R= 5, Q= 1},
             Terrain= Terrains.Desert
           },
        new ()     {
-Coordinate= new Coordinate() { Q= 0, R= 2},
+Coordinate= new Coordinate() { R= 0, Q= 2},
             Terrain= Terrains.Swamp
           },
        new ()     {
-Coordinate= new Coordinate() { Q= 1, R= 2},
+Coordinate= new Coordinate() { R= 1, Q= 2},
             Terrain= Terrains.Mountain
           },
       new ()      {
-Coordinate= new Coordinate() { Q= 2, R= 2},
+Coordinate= new Coordinate() { R= 2, Q= 2},
             Terrain= Terrains.Mountain
           },
       new ()      {
-Coordinate= new Coordinate() { Q= 3, R= 2},
+Coordinate= new Coordinate() { R= 3, Q= 2},
             Terrain= Terrains.Mountain
           },
       new ()      {
-Coordinate= new Coordinate() { Q= 4, R= 2},
+Coordinate= new Coordinate() { R= 4, Q= 2},
             Terrain= Terrains.Mountain
           },
        new ()     {
-Coordinate= new Coordinate() { Q= 5, R= 2},
+Coordinate= new Coordinate() { R= 5, Q= 2},
             Terrain= Terrains.Desert
           }
         ]
@@ -197,78 +196,78 @@ Id="3",
          Tiles=
     [
       new ()      {
-    Coordinate= new Coordinate() { Q= 0, R= 0},
+    Coordinate= new Coordinate() { R= 0, Q= 0},
             Terrain= Terrains.Swamp
           },
     new ()        {
-    Coordinate= new Coordinate() { Q= 1, R= 0},
+    Coordinate= new Coordinate() { R= 1, Q= 0},
             Terrain= Terrains.Swamp
           },
    new ()         {
-    Coordinate= new Coordinate() { Q= 2, R= 0},
+    Coordinate= new Coordinate() { R= 2, Q= 0},
             Terrain= Terrains.Forest
           },
     new ()        {
-    Coordinate= new Coordinate() { Q= 3, R= 0},
+    Coordinate= new Coordinate() { R= 3, Q= 0},
             Terrain= Terrains.Forest
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 4, R= 0},
+    Coordinate= new Coordinate() { R= 4, Q= 0},
             Terrain= Terrains.Forest
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 5, R= 0},
+    Coordinate= new Coordinate() { R= 5, Q= 0},
             Terrain= Terrains.River
           },
      new ()       {
-    Coordinate= new Coordinate() { Q= 0, R= 1},
+    Coordinate= new Coordinate() { R= 0, Q= 1},
             Terrain= Terrains.Swamp,
             Territory= Territories.Puma
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 1, R= 1},
+    Coordinate= new Coordinate() { R= 1, Q= 1},
             Terrain= Terrains.Swamp,
             Territory= Territories.Puma
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 2, R= 1},
+    Coordinate= new Coordinate() { R= 2, Q= 1},
             Terrain= Terrains.Forest
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 3, R= 1},
+    Coordinate= new Coordinate() { R= 3, Q= 1},
             Terrain= Terrains.Mountain
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 4, R= 1},
+    Coordinate= new Coordinate() { R= 4, Q= 1},
             Terrain= Terrains.River
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 5, R= 1},
+    Coordinate= new Coordinate() { R= 5, Q= 1},
             Terrain= Terrains.River
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 0, R= 2},
+    Coordinate= new Coordinate() { R= 0, Q= 2},
             Terrain= Terrains.Mountain,
             Territory= Territories.Puma
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 1, R= 2},
+    Coordinate= new Coordinate() { R= 1, Q= 2},
             Terrain= Terrains.Mountain
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 2, R= 2},
+    Coordinate= new Coordinate() { R= 2, Q= 2},
             Terrain= Terrains.Mountain
           },
        new ()    {
-    Coordinate= new Coordinate() { Q= 3, R= 2},
+    Coordinate= new Coordinate() { R= 3, Q= 2},
             Terrain= Terrains.Mountain
           },
         new ()    {
-    Coordinate= new Coordinate() { Q= 4, R= 2},
+    Coordinate= new Coordinate() { R= 4, Q= 2},
             Terrain= Terrains.River
           },
      new ()       {
-    Coordinate= new Coordinate() { Q= 5, R= 2},
+    Coordinate= new Coordinate() { R= 5, Q= 2},
             Terrain= Terrains.River
           }
         ]
@@ -278,76 +277,76 @@ Id="4",
          Tiles=
     [
        new ()     {
-    Coordinate= new Coordinate() { Q= 0, R= 0},
+    Coordinate= new Coordinate() { R= 0, Q= 0},
             Terrain= Terrains.Desert
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 1, R= 0},
+    Coordinate= new Coordinate() { R= 1, Q= 0},
             Terrain= Terrains.Desert
           },
     new ()        {
-    Coordinate= new Coordinate() { Q= 2, R= 0},
+    Coordinate= new Coordinate() { R= 2, Q= 0},
             Terrain= Terrains.Mountain
           },
     new ()        {
-    Coordinate= new Coordinate() { Q= 3, R= 0},
+    Coordinate= new Coordinate() { R= 3, Q= 0},
             Terrain= Terrains.Mountain
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 4, R= 0},
+    Coordinate= new Coordinate() { R= 4, Q= 0},
             Terrain= Terrains.Mountain
           },
         new ()    {
-    Coordinate= new Coordinate() { Q= 5, R= 0},
+    Coordinate= new Coordinate() { R= 5, Q= 0},
             Terrain= Terrains.Mountain
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 0, R= 1},
+    Coordinate= new Coordinate() { R= 0, Q= 1},
             Terrain= Terrains.Desert
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 1, R= 1},
+    Coordinate= new Coordinate() { R= 1, Q= 1},
             Terrain= Terrains.Desert
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 2, R= 1},
+    Coordinate= new Coordinate() { R= 2, Q= 1},
             Terrain= Terrains.Mountain
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 3, R= 1},
+    Coordinate= new Coordinate() { R= 3, Q= 1},
             Terrain= Terrains.River
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 4, R= 1},
+    Coordinate= new Coordinate() { R= 4, Q= 1},
             Terrain= Terrains.River
           },
     new ()        {
-    Coordinate= new Coordinate() { Q= 5, R= 1},
+    Coordinate= new Coordinate() { R= 5, Q= 1},
             Terrain= Terrains.River,
             Territory= Territories.Puma
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 0, R= 2},
+    Coordinate= new Coordinate() { R= 0, Q= 2},
             Terrain= Terrains.Desert
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 1, R= 2},
+    Coordinate= new Coordinate() { R= 1, Q= 2},
             Terrain= Terrains.Desert
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 2, R= 2},
+    Coordinate= new Coordinate() { R= 2, Q= 2},
             Terrain= Terrains.Desert
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 3, R= 2},
+    Coordinate= new Coordinate() { R= 3, Q= 2},
             Terrain= Terrains.Forest
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 4, R= 2},
+    Coordinate= new Coordinate() { R= 4, Q= 2},
             Terrain= Terrains.Forest
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 5, R= 2},
+    Coordinate= new Coordinate() { R= 5, Q= 2},
             Terrain= Terrains.Forest,
             Territory= Territories.Puma
           }
@@ -358,77 +357,77 @@ Id="5",
          Tiles=
     [
       new ()      {
-    Coordinate= new Coordinate() { Q= 0, R= 0},
+    Coordinate= new Coordinate() { R= 0, Q= 0},
             Terrain= Terrains.Swamp
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 1, R= 0},
+    Coordinate= new Coordinate() { R= 1, Q= 0},
             Terrain= Terrains.Swamp
           },
      new ()       {
-    Coordinate= new Coordinate() { Q= 2, R= 0},
+    Coordinate= new Coordinate() { R= 2, Q= 0},
             Terrain= Terrains.Swamp
           },
      new ()       {
-    Coordinate= new Coordinate() { Q= 3, R= 0},
+    Coordinate= new Coordinate() { R= 3, Q= 0},
             Terrain= Terrains.Mountain
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 4, R= 0},
-            Terrain= Terrains.Mountain
-          },
-       new ()     {
-    Coordinate= new Coordinate() { Q= 5, R= 0},
+    Coordinate= new Coordinate() { R= 4, Q= 0},
             Terrain= Terrains.Mountain
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 0, R= 1},
+    Coordinate= new Coordinate() { R= 5, Q= 0},
+            Terrain= Terrains.Mountain
+          },
+       new ()     {
+    Coordinate= new Coordinate() { R= 0, Q= 1},
             Terrain= Terrains.Swamp
           },
      new ()       {
-    Coordinate= new Coordinate() { Q= 1, R= 1},
+    Coordinate= new Coordinate() { R= 1, Q= 1},
             Terrain= Terrains.Desert
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 2, R= 1},
+    Coordinate= new Coordinate() { R= 2, Q= 1},
             Terrain= Terrains.Desert
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 3, R= 1},
+    Coordinate= new Coordinate() { R= 3, Q= 1},
             Terrain= Terrains.River
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 4, R= 1},
+    Coordinate= new Coordinate() { R= 4, Q= 1},
             Terrain= Terrains.Mountain
           },
      new ()       {
-    Coordinate= new Coordinate() { Q= 5, R= 1},
+    Coordinate= new Coordinate() { R= 5, Q= 1},
             Terrain= Terrains.Mountain,
             Territory= Territories.Bear
           },
         new ()    {
-    Coordinate= new Coordinate() { Q= 0, R= 2},
+    Coordinate= new Coordinate() { R= 0, Q= 2},
             Terrain= Terrains.Desert
           },
     new ()       {
-    Coordinate= new Coordinate() { Q= 1, R= 2},
+    Coordinate= new Coordinate() { R= 1, Q= 2},
             Terrain= Terrains.Desert
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 2, R= 2},
+    Coordinate= new Coordinate() { R= 2, Q= 2},
             Terrain= Terrains.River
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 3, R= 2},
+    Coordinate= new Coordinate() { R= 3, Q= 2},
             Terrain= Terrains.River
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 4, R= 2},
+    Coordinate= new Coordinate() { R= 4, Q= 2},
             Terrain= Terrains.River,
             Territory= Territories.Bear
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 5, R= 2},
+    Coordinate= new Coordinate() { R= 5, Q= 2},
             Terrain= Terrains.River,
             Territory= Territories.Bear
           }
@@ -439,77 +438,77 @@ Id="6",
          Tiles=
     [
      new ()       {
-    Coordinate= new Coordinate() { Q= 0, R= 0},
+    Coordinate= new Coordinate() { R= 0, Q= 0},
             Terrain= Terrains.Desert,
             Territory= Territories.Bear
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 1, R= 0},
+    Coordinate= new Coordinate() { R= 1, Q= 0},
             Terrain= Terrains.Desert
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 2, R= 0},
+    Coordinate= new Coordinate() { R= 2, Q= 0},
             Terrain= Terrains.Swamp
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 3, R= 0},
+    Coordinate= new Coordinate() { R= 3, Q= 0},
             Terrain= Terrains.Swamp
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 4, R= 0},
+    Coordinate= new Coordinate() { R= 4, Q= 0},
             Terrain= Terrains.Swamp
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 5, R= 0},
+    Coordinate= new Coordinate() { R= 5, Q= 0},
             Terrain= Terrains.Forest
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 0, R= 1},
+    Coordinate= new Coordinate() { R= 0, Q= 1},
             Terrain= Terrains.Mountain,
             Territory= Territories.Bear
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 1, R= 1},
+    Coordinate= new Coordinate() { R= 1, Q= 1},
             Terrain= Terrains.Mountain
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 2, R= 1},
+    Coordinate= new Coordinate() { R= 2, Q= 1},
             Terrain= Terrains.Swamp
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 3, R= 1},
+    Coordinate= new Coordinate() { R= 3, Q= 1},
             Terrain= Terrains.Swamp
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 4, R= 1},
+    Coordinate= new Coordinate() { R= 4, Q= 1},
             Terrain= Terrains.Forest
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 5, R= 1},
+    Coordinate= new Coordinate() { R= 5, Q= 1},
             Terrain= Terrains.Forest
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 0, R= 2},
+    Coordinate= new Coordinate() { R= 0, Q= 2},
             Terrain= Terrains.Mountain
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 1, R= 2},
+    Coordinate= new Coordinate() { R= 1, Q= 2},
             Terrain= Terrains.River
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 2, R= 2},
+    Coordinate= new Coordinate() { R= 2, Q= 2},
             Terrain= Terrains.River
           },
       new ()      {
-    Coordinate= new Coordinate() { Q= 3, R= 2},
+    Coordinate= new Coordinate() { R= 3, Q= 2},
             Terrain= Terrains.River
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 4, R= 2},
+    Coordinate= new Coordinate() { R= 4, Q= 2},
             Terrain= Terrains.River
           },
        new ()     {
-    Coordinate= new Coordinate() { Q= 5, R= 2},
+    Coordinate= new Coordinate() { R= 5, Q= 2},
             Terrain= Terrains.Forest
           }
         ]
@@ -527,10 +526,10 @@ Id="6",
                 newBoardPart.Id += 'r';
 
                 newBoardPart.Tiles.ForEach(tile => {
-                var q = 5 - tile.Coordinate.Q;
-                    var r = 2 - tile.Coordinate.R;
+                var q = 5 - tile.Coordinate.R;
+                    var r = 2 - tile.Coordinate.Q;
 
-                    tile.Coordinate = new Coordinate() { Q = q, R = r}
+                    tile.Coordinate = new Coordinate() { R = q, Q = r}
                     ;
                 });
 
@@ -546,6 +545,7 @@ Id="6",
             var structures = new List<Structures> { Structures.Hut, Structures.StoneThingy };
             var colors = new List<StructureColors> { StructureColors.Blue, StructureColors.Green, StructureColors.White, StructureColors.Black };
             var territories = new List<Territories> { Territories.Bear, Territories.Puma };
+            var counter = 0;
 
             // 1) In one of two terrains - no duplicate terrains and order doesn't matter
             terrains.ForEach(t =>
@@ -557,7 +557,7 @@ Id="6",
 
                     rules.Add(new()
                     {
-                        Id = Guid.NewGuid().ToString(),
+                        Id = $"{++counter}",
                         Terrains = [t, t2],
                         Negated = false
                     });
@@ -569,7 +569,7 @@ Id="6",
             {
                 rules.Add(new()
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = $"{++counter}",
                     Terrains = [t],
                     Range = 1,
                     Negated = false
@@ -578,7 +578,7 @@ Id="6",
 
             rules.Add(new()
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = $"{++counter}",
                 Territories = territories,
                 Range = 1,
                 Negated = false
@@ -589,7 +589,7 @@ Id="6",
             {
                 rules.Add(new()
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = $"{++counter}",
                     Territories = [t],
                     Range = 2,
                     Negated = false
@@ -600,7 +600,7 @@ Id="6",
             {
                 rules.Add(new()
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = $"{++counter}",
                     Structures = [s],
                     Range = 2,
                     Negated = false
@@ -612,7 +612,7 @@ Id="6",
             {
                 rules.Add(new()
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = $"{++counter}",
                     Structures = structures,
                     StructureColor = c,
                     Range = 3,

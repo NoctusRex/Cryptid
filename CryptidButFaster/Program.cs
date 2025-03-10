@@ -1,99 +1,117 @@
 ﻿using CryptidButFaster.Models;
 using FastDeepCloner;
-using System.Collections.Concurrent;
 
 CryptidButFaster.Generator generator = new();
-
+Console.WriteLine("Generate base data");
 generator.Generate();
 
-GenerateBoardsWithStructures(generator.Boards.First());
+var generatorRuleSets = generator.RuleSets;
+var tileKeys = new List<string>();
+var random = new Random();
 
-void GenerateBoardsWithStructures(Board board)
+GenerateRandomBoards(5);
+
+void GenerateRandomBoards(int count)
 {
-    var j = 0;
-    board.Parts.ForEach(part =>
+    var possibleStructures = GetPossibleStructures();
+    var boards = generator.Boards;
+    var parts = DeepCloner.Clone(generator.BoardParts);
+
+    for (int i = 0; i < count; i++)
     {
-        var tiles = DeepCloner.Clone(generator.BoardParts.First(x => x.Id == part.Id).Tiles);
+        Console.WriteLine("Prepare Board");
+        var board = boards[random.Next(0, generator.Boards.Count)];
 
-        switch (j)
+        var j = 0;
+        board.Parts.ForEach(part =>
         {
-            case 0:
-                part.Coordinate = new() { Q = 0, R = 0 };
-                break;
-            case 1:
-                part.Coordinate = new() { Q = 0, R = 1 };
-                break;
-            case 2:
-                part.Coordinate = new() { Q = 1, R = 0 };
-                break;
-            case 3:
-                part.Coordinate = new() { Q = 1, R = 1 };
-                break;
-            case 4:
-                part.Coordinate = new() { Q = 2, R = 0 };
-                break;
-            case 5:
-                part.Coordinate = new() { Q = 2, R = 1 };
-                break;
-        }
+            var tiles = DeepCloner.Clone(parts.First(x => x.Id == part.Id).Tiles);
 
-        tiles.ForEach((tile) =>
-        {
-            tile.Coordinate.Q = tile.Coordinate.Q + (part.Coordinate!.Q * 6);
-            tile.Coordinate.R = tile.Coordinate.R + (part.Coordinate!.R * 3);
+            switch (j)
+            {
+                case 0:
+                    part.Coordinate = new() { Q = 0, R = 0 };
+                    break;
+                case 1:
+                    part.Coordinate = new() { Q = 0, R = 1 };
+                    break;
+                case 2:
+                    part.Coordinate = new() { Q = 1, R = 0 };
+                    break;
+                case 3:
+                    part.Coordinate = new() { Q = 1, R = 1 };
+                    break;
+                case 4:
+                    part.Coordinate = new() { Q = 2, R = 0 };
+                    break;
+                case 5:
+                    part.Coordinate = new() { Q = 2, R = 1 };
+                    break;
+            }
+
+            tiles.ForEach((tile) =>
+            {
+                tile.Coordinate.R = tile.Coordinate.R + (part.Coordinate!.R * 6);
+                tile.Coordinate.Q = tile.Coordinate.Q + (part.Coordinate!.Q * 3);
+            });
+
+            board.Tiles.AddRange(tiles);
+
+            j++;
         });
 
-        board.Tiles.AddRange(tiles);
+        GenerateBoard(board, GetRandomCombination(possibleStructures.Count));
+    }
+}
 
-        j++;
-    });
+void GenerateBoard(Board board, List<Coordinate> combination, int max = 1)
+{
+    Console.WriteLine("Generate Board");
 
     var possibleStructures = GetPossibleStructures();
-    var validTiles = board.Tiles.Where(t => t.Structure == null).ToList();
-    var counter = 0;
-    var max = 3;
     var random = new Random();
 
-    foreach (var combination in GetCombinations(validTiles, possibleStructures.Count))
+    var newBoard = DeepCloner.Clone(board);
+
+    for (int i = 0; i < combination.Count; i++)
     {
-        var newBoard = DeepCloner.Clone(board);
+        newBoard.Tiles.First(t => t.Coordinate.R == combination[i].R && t.Coordinate.Q == combination[i].Q).Structure = possibleStructures[i];
+    }
 
-        for (int i = 0; i < combination.Count; i++)
-            newBoard.Tiles.First(t => t.Coordinate.Q == combination[i].Coordinate.Q && t.Coordinate.R == combination[i].Coordinate.R).Structure = possibleStructures[i];
+    var ruleCache = GetRuleCache(newBoard.Tiles);
 
-        var ruleCache = GetRuleCache(newBoard.Tiles);
+    if (tileKeys.Count == 0)
+    {
+        tileKeys = [.. ruleCache.Values.First().Select(x => x.Key)];
+    }
 
-        // STOP search after X tries
-        if (counter == max) break;
+    Console.WriteLine("Check Board");
+    var rules = HasCryptid(ruleCache);
+    if (rules != null && rules.Count > 1)
+    {
+        Console.WriteLine($"Found match");
 
-        var rules = HasCryptid(ruleCache);
-        if (rules != null && rules.Count > 1)
-        {
-            Console.WriteLine($"Found match {counter}");
-
-            newBoard.RuleCache = ruleCache;
-            newBoard.Rules = generator.Rules;
-            newBoard.Id = string.Join("-", newBoard.Parts.Select(x => x.Id)) + " " + Guid.NewGuid().ToString();
-            newBoard.RuleSets = [.. rules.Select(x =>
+        newBoard.RuleCache = ruleCache;
+        newBoard.Rules = generator.Rules;
+        newBoard.Id = string.Join("-", newBoard.Parts.Select(x => x.Id)) + " " + Guid.NewGuid().ToString();
+        newBoard.RuleSets = [.. rules.Select(x =>
             {
                 var cryptid = GetCryptid(x, ruleCache);
                 var ruleSet = new RuleSet
                 {
                     Rules = [.. x.Select(x => x.Id)],
-                    Cryptid = new()
-                    {
-                        Q = int.Parse(cryptid.Split('-')[0]),
-                        R = int.Parse(cryptid.Split('-')[1])
-                    }
+                    Cryptid = Coordinate.FromString(cryptid)
                 };
 
                 return ruleSet;
-            })];
+            }).Where(x => x.Cryptid != null)];
 
-            counter++;
-
-            File.WriteAllText($"./boards/{newBoard.Id}.json", Newtonsoft.Json.JsonConvert.SerializeObject(newBoard, Newtonsoft.Json.Formatting.Indented));
-        }
+        Console.WriteLine($"Save file");
+        File.WriteAllText($"./boards/{newBoard.Id}.json", Newtonsoft.Json.JsonConvert.SerializeObject(newBoard, Newtonsoft.Json.Formatting.Indented));
+    }
+    else
+    {
+        Console.WriteLine($"No match");
     }
 }
 
@@ -101,45 +119,33 @@ List<List<Rule>>? HasCryptid(Dictionary<string, Dictionary<string, bool>> ruleCa
 {
     var matchingRuleSets = new List<List<Rule>>();
 
-    Parallel.ForEach(generator.RuleSets, (rulesSet, i, v) =>
+    Parallel.ForEach(generatorRuleSets, (rulesSet, i, v) =>
     {
-        bool? foundOnlyOneCryptid = null;
+        var tilesToCheck = DeepCloner.Clone(tileKeys);
+        var lastTileCount = int.MaxValue;
 
-        foreach (var tile in ruleCache.Values.First().Select(x => x.Key).ToList())
+        foreach (var rule in rulesSet)
         {
-            if (foundOnlyOneCryptid != null && !foundOnlyOneCryptid.Value) break;
+            // Check only tiles nessecary
+            tilesToCheck = [.. tilesToCheck.Where(x => ruleCache[rule.Id][x.ToString()])];
 
-            bool foundCryptid = true;
-
-            foreach (var rule in rulesSet)
-                if (!ruleCache[rule.Id][tile]) foundCryptid = false;
-
-            if (foundCryptid)
-            {
-                if (foundOnlyOneCryptid == null)
-                {
-                    foundOnlyOneCryptid = true;
-                }
-                else if (foundOnlyOneCryptid.Value)
-                {
-                    foundOnlyOneCryptid = false;
-                }
-            }
+            // If tile count does not reduce, don't use the ruleset
+            if (lastTileCount == tilesToCheck.Count) break;
+            lastTileCount = tilesToCheck.Count;
         }
 
-        if (foundOnlyOneCryptid == true)
-            matchingRuleSets.Add(rulesSet);
+        if (lastTileCount == 1) matchingRuleSets.Add(rulesSet);
     });
 
     return matchingRuleSets.Count > 1 ? matchingRuleSets : null;
 }
 
-string GetCryptid(List<Rule> ruleSet, Dictionary<string, Dictionary<string, bool>> ruleCache)
+string? GetCryptid(List<Rule> ruleSet, Dictionary<string, Dictionary<string, bool>> ruleCache)
 {
     var ruleResults = ruleCache.ToList().Where(x => ruleSet.Any(y => x.Key == y.Id)).SelectMany(x => x.Value).Where(x => x.Value).Select(x => x.Key);
     var groupedResults = ruleResults.GroupBy(x => x).Where(g => g.Count() == ruleSet.Count).Select(x => x.Key);
 
-    return groupedResults.Single();
+    return groupedResults.SingleOrDefault();
 }
 
 Dictionary<string, Dictionary<string, bool>> GetRuleCache(List<BoardTile> tiles)
@@ -171,8 +177,8 @@ List<BoardTile> GetInRange(List<BoardTile> board, BoardTile centerTile, int rang
 
         for (int dr = minDr; dr <= maxDr; dr++)
         {
-            var coordinate = new Coordinate { Q = centerTile.Coordinate.Q + dq, R = centerTile.Coordinate.R + dr };
-            var tile = board.FirstOrDefault(x => x.Coordinate.Q == coordinate.Q && x.Coordinate.R == coordinate.R);
+            var coordinate = new Coordinate { R = centerTile.Coordinate.R + dq, Q = centerTile.Coordinate.Q + dr };
+            var tile = board.FirstOrDefault(x => x.Coordinate.R == coordinate.R && x.Coordinate.Q == coordinate.Q);
             if (tile != null) neighbours.Add(tile);
         }
     }
@@ -235,6 +241,21 @@ bool ValidateRule(Rule rule, BoardTile tile, List<BoardTile> tiles)
             result = rule.Terrains != null && rule.Terrains.Any(x => x == tile.Terrain);
             return rule.Negated ? !result : result;
     }
+}
+
+List<Coordinate> GetRandomCombination(int count)
+{
+    var result = new List<Coordinate>();
+
+    while(result.Count < count)
+    {
+        var coord = new Coordinate() { Q = random.Next(0, 3 * 3), R = random.Next(0, 6 * 2) };
+        if (result.Where(x => x.ToString() == coord.ToString()).Any()) continue;
+
+        result.Add(coord);
+    }
+
+    return result;
 }
 
 static IEnumerable<List<T>> GetCombinations<T>(List<T> elements, int k)

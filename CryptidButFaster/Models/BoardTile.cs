@@ -5,7 +5,6 @@
         public Terrains Terrain { get; set; }
         public Structure? Structure { get; set; }
         public Territories? Territory { get; set; }
-        public bool HasCryptid { get; set; }
         public Coordinate Coordinate { get; set; }
     }
 }
